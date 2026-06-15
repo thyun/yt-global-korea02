@@ -31,13 +31,24 @@ Stage 7: Publishing Agent        → episodes/{slug}/07_publish/
 
 | 단계 | 에이전트 역할 | 입력 | 출력 경로 (`episodes/{slug}/`) |
 |------|-------------|------|------|
-| 01_trend | 트렌드 리서처 | 검색 키워드 + 웹/YouTube 탐색 | `01_trend/trends.json` (트렌드 테마 + **소스 영상 후보 목록**) |
+| 01_trend | 트렌드 리서처 | 검색 키워드 + 웹/YouTube 탐색 | `01_trend/trends.json` (트렌드 테마 + **소스 영상 후보 목록**) — **검색 시작 전 키워드를 사용자에게 제안하고 확인 받은 후 진행** |
 | 02_topic | 소스 선정 & 기획자 | `01_trend/trends.json` | `02_topic/topic.md` + **`02_topic/transcript.json`** (소스 영상 트랜스크립트) |
 | 03_script | 스크립트 작가 | `02_topic/topic.md` + `02_topic/transcript.json` | `03_script/script.md` (편집 대본) + `03_script/narration.md` (보이스오버 녹음용) |
 | 04_visual | 영상 기획자 | `03_script/script.md` + `02_topic/transcript.json` | `04_visual/storyboard.md` (컷 구성 + **실제 타임코드 매핑**) |
 | 05_assets | 에셋 수집자 | `04_visual/storyboard.md` | `05_assets/` (소스 영상 다운로드 + 자막·BGM 등 추가 에셋) |
 | 06_video | 영상 편집자 | `05_assets/` + `04_visual/storyboard.md` | `06_video/output.mp4` |
 | 07_publish | 퍼블리셔 | `06_video/output.mp4` + `02_topic/topic.md` | `07_publish/metadata.json` |
+
+### 01단계 검색 키워드 확인 규칙 (필수)
+
+1단계(트렌드 리서치)를 시작할 때 **반드시 아래 순서를 지킨다**:
+
+1. 프로젝트 방향(`콘텐츠 방향`, 이전 에피소드 주제 등)을 바탕으로 검색 키워드 후보 **3~5개**를 사용자에게 먼저 제안한다.
+2. 사용자가 키워드를 **확인(승인 또는 수정)** 한 이후에만 실제 웹 검색을 수행한다.
+3. 검색은 사용자가 별도로 기간을 지정하지 않는 한 **최근 2년 이내** 영상을 기준으로 탐색한다.
+4. 확인된 최종 키워드를 `trends.json`의 `search_keywords` 필드에 기록한다.
+
+---
 
 ### 트랜스크립트 다운로드 규칙 (02단계 필수)
 
