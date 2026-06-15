@@ -7,6 +7,7 @@
 - **레퍼런스 채널/영상**: https://www.youtube.com/watch?v=H2KRGy6O0_0
 - **타겟 시청자**: 30대 이상 한국인
 - **콘텐츠 방향**: 외국인이 경험하는 한국 문화·생활·사회 이슈를 한국인 시청자 시각에서 흥미롭게 재구성
+- **제작 방식**: 기존 YouTube 원본 소스 영상을 선정한 뒤, 편집·재구성하여 새 영상을 제작 (원본 촬영 없음)
 
 ---
 
@@ -14,27 +15,37 @@
 
 각 단계는 독립된 에이전트 역할을 가지며, 이전 단계의 산출물을 입력으로 받습니다.
 
+각 에피소드의 모든 산출물은 `episodes/{YYYYMMDD_episode-slug}/` 하위에 단계별로 저장됩니다.
+
 ```
-Stage 1: Trend Research Agent    → /pipeline/01_trend/
-Stage 2: Topic Planning Agent    → /pipeline/02_topic/
-Stage 3: Script Writing Agent    → /pipeline/03_script/
-Stage 4: Visual Planning Agent   → /pipeline/04_visual/
-Stage 5: Asset Collection Agent  → /pipeline/05_assets/
-Stage 6: Video Assembly Agent    → /pipeline/06_video/
-Stage 7: Publishing Agent        → /pipeline/07_publish/
+Stage 1: Trend Research Agent    → episodes/{slug}/01_trend/
+Stage 2: Topic Planning Agent    → episodes/{slug}/02_topic/
+Stage 3: Script Writing Agent    → episodes/{slug}/03_script/
+Stage 4: Visual Planning Agent   → episodes/{slug}/04_visual/
+Stage 5: Asset Collection Agent  → episodes/{slug}/05_assets/
+Stage 6: Video Assembly Agent    → episodes/{slug}/06_video/
+Stage 7: Publishing Agent        → episodes/{slug}/07_publish/
 ```
 
 ### 단계별 입출력 정의
 
-| 단계 | 에이전트 역할 | 입력 | 출력 |
+| 단계 | 에이전트 역할 | 입력 | 출력 경로 (`episodes/{slug}/`) |
 |------|-------------|------|------|
-| 01_trend | 트렌드 리서처 | YouTube API / 검색 키워드 | `trends.json` (트렌드 키워드, 인기 영상 목록) |
-| 02_topic | 주제 기획자 | `trends.json` | `topic.md` (주제, 제목 후보, 썸네일 컨셉) |
-| 03_script | 스크립트 작가 | `topic.md` | `script.md` (인트로/본문/아웃트로 구성) |
-| 04_visual | 영상 기획자 | `script.md` | `storyboard.md` (장면 구성, 자막 계획) |
-| 05_assets | 에셋 수집자 | `storyboard.md` | `/assets/` (이미지, 영상 클립, 음악) |
-| 06_video | 영상 편집자 | `/assets/` + `storyboard.md` | `output.mp4` |
-| 07_publish | 퍼블리셔 | `output.mp4` + `topic.md` | YouTube 업로드 메타데이터 |
+| 01_trend | 트렌드 리서처 | 검색 키워드 + 웹/YouTube 탐색 | `01_trend/trends.json` (트렌드 테마 + **소스 영상 후보 목록**) |
+| 02_topic | 소스 선정 & 기획자 | `01_trend/trends.json` | `02_topic/topic.md` (에피소드 기획 + **최종 소스 영상 선정**) |
+| 03_script | 스크립트 작가 | `02_topic/topic.md` | `03_script/script.md` (편집 대본) + `03_script/narration.md` (보이스오버 녹음용 나레이션 전용) |
+| 04_visual | 영상 기획자 | `03_script/script.md` | `04_visual/storyboard.md` (컷 구성 + 소스 영상 타임코드 매핑) |
+| 05_assets | 에셋 수집자 | `04_visual/storyboard.md` | `05_assets/` (소스 영상 다운로드 + 자막·BGM 등 추가 에셋) |
+| 06_video | 영상 편집자 | `05_assets/` + `04_visual/storyboard.md` | `06_video/output.mp4` |
+| 07_publish | 퍼블리셔 | `06_video/output.mp4` + `02_topic/topic.md` | `07_publish/metadata.json` |
+
+### 소스 영상 선정 기준 (01~02단계 핵심)
+
+- **저작권**: Creative Commons(CC) 라이선스 또는 명시적 재사용 허가 영상 우선
+- **조회수**: 1만 뷰 이상 (검증된 주제 관심도)
+- **영상 품질**: 720p 이상, 영어 또는 한국어 자막 포함
+- **내용 적합성**: 외국인 화자, 한국 생활 주제, 타겟 시청자(30대 이상 한국인) 공감 가능
+- `trends.json` 의 `source_candidates` 배열에 URL·채널명·조회수·라이선스·사용 가능 구간을 반드시 기록
 
 ---
 
@@ -42,20 +53,21 @@ Stage 7: Publishing Agent        → /pipeline/07_publish/
 
 ```
 yt-global-korea02/
-├── pipeline/
-│   ├── 01_trend/         # 트렌드 리서치 결과
-│   ├── 02_topic/         # 주제 기획서
-│   ├── 03_script/        # 스크립트
-│   ├── 04_visual/        # 스토리보드
-│   ├── 05_assets/        # 수집된 에셋
-│   ├── 06_video/         # 완성 영상
-│   └── 07_publish/       # 배포 메타데이터
-├── tools/                # 각 단계를 자동화하는 Python 스크립트
-│   ├── trend_search.py   # YouTube API 트렌드 수집
-│   ├── topic_planner.py  # 주제 기획 자동화
+├── episodes/
+│   └── {YYYYMMDD_episode-slug}/   # 에피소드별 독립 디렉토리
+│       ├── 01_trend/              # trends.json
+│       ├── 02_topic/              # topic.md
+│       ├── 03_script/             # script.md
+│       ├── 04_visual/             # storyboard.md
+│       ├── 05_assets/             # 이미지·클립·음악, license_log.md
+│       ├── 06_video/              # output.mp4
+│       └── 07_publish/            # metadata.json
+├── tools/                         # 각 단계를 자동화하는 Python 스크립트
+│   ├── trend_search.py            # YouTube API 트렌드 수집
+│   ├── topic_planner.py           # 주제 기획 자동화
 │   └── ...
 ├── config/
-│   └── settings.yaml     # API 키 경로, 언어 설정 등
+│   └── settings.yaml              # API 키 경로, 언어 설정 등
 └── README.md
 ```
 
@@ -68,14 +80,27 @@ yt-global-korea02/
 - 시청자 대상이 30대 이상 한국인이므로, 어조는 **친근하되 신뢰감 있는 정보 전달형**
 - 자극적·클릭베이트 성격은 지양하고, 외국인 관점의 진정성 있는 스토리 중심
 
+### 나레이션 작성 규칙
+
+나레이션 스타일 레퍼런스: **`templates/narration.md`** — 반드시 이 파일을 먼저 읽고 스타일을 맞출 것.
+
+핵심 원칙:
+- **끊김 없는 흐름**: 구간 헤더 없이 하나의 연속된 산문으로 작성. 단락 구분은 자연스러운 호흡 단위로만 사용
+- **스토리텔링 구조**: 트렌드/사건 훅 → 특정 인물 도입 → 인물을 따라가며 사건 전개 → 감정적 마무리 → CTA
+- **호기심 연결 어미**: 문단 말미에 `~는데요`, `~인데요`, `~고 맙니다` 등으로 다음 문장이 궁금하게 끝맺기
+- **전환 접속어**: `그런데`, `하지만`, `결국`, `그렇게`, `그리고 드디어` 등으로 흐름을 이어 독자를 붙잡기
+- **인물 대사 자연 삽입**: 외국인 발언은 따옴표로 나레이션 안에 녹여 쓰고 별도 태그 없이 처리
+- **군더더기 제거**: 조사·어미 중복, 불필요한 수식어 제거. 한 문장에 하나의 정보만
+- `narration.md`는 **녹음 텍스트만** 수록 — `[나레이션]`, `[BGM]` 등 편집 태그 일체 포함 금지
+
 ### 프로그램 작성 규칙
 - YouTube 검색·크롤링 등 외부 데이터 수집은 `tools/` 디렉토리에 **Python 스크립트**로 작성
 - API 키 등 민감 정보는 `.env` 파일에서 로드하고 절대 소스코드에 하드코딩 금지
 - 각 스크립트는 단독 실행 가능하도록 `if __name__ == "__main__":` 진입점 포함
 
 ### 산출물 관리
-- 각 파이프라인 단계의 결과물은 해당 단계 디렉토리에 저장
-- 날짜 기반 버전 관리: `YYYYMMDD_topic.md` 형식 권장
+- 모든 단계의 산출물은 **`episodes/{YYYYMMDD_episode-slug}/`** 하위 해당 단계 디렉토리에 저장
+- 에피소드 슬러그 예시: `20260615_foreigner-subway-experience`
 - 영상 에셋은 라이선스 정보를 함께 기록 (`05_assets/license_log.md`)
 
 ### Copilot 에이전트 역할
