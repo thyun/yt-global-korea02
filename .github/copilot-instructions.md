@@ -32,12 +32,29 @@ Stage 7: Publishing Agent        → episodes/{slug}/07_publish/
 | 단계 | 에이전트 역할 | 입력 | 출력 경로 (`episodes/{slug}/`) |
 |------|-------------|------|------|
 | 01_trend | 트렌드 리서처 | 검색 키워드 + 웹/YouTube 탐색 | `01_trend/trends.json` (트렌드 테마 + **소스 영상 후보 목록**) |
-| 02_topic | 소스 선정 & 기획자 | `01_trend/trends.json` | `02_topic/topic.md` (에피소드 기획 + **최종 소스 영상 선정**) |
-| 03_script | 스크립트 작가 | `02_topic/topic.md` | `03_script/script.md` (편집 대본) + `03_script/narration.md` (보이스오버 녹음용 나레이션 전용) |
-| 04_visual | 영상 기획자 | `03_script/script.md` | `04_visual/storyboard.md` (컷 구성 + 소스 영상 타임코드 매핑) |
+| 02_topic | 소스 선정 & 기획자 | `01_trend/trends.json` | `02_topic/topic.md` + **`02_topic/transcript.json`** (소스 영상 트랜스크립트) |
+| 03_script | 스크립트 작가 | `02_topic/topic.md` + `02_topic/transcript.json` | `03_script/script.md` (편집 대본) + `03_script/narration.md` (보이스오버 녹음용) |
+| 04_visual | 영상 기획자 | `03_script/script.md` + `02_topic/transcript.json` | `04_visual/storyboard.md` (컷 구성 + **실제 타임코드 매핑**) |
 | 05_assets | 에셋 수집자 | `04_visual/storyboard.md` | `05_assets/` (소스 영상 다운로드 + 자막·BGM 등 추가 에셋) |
 | 06_video | 영상 편집자 | `05_assets/` + `04_visual/storyboard.md` | `06_video/output.mp4` |
 | 07_publish | 퍼블리셔 | `06_video/output.mp4` + `02_topic/topic.md` | `07_publish/metadata.json` |
+
+### 트랜스크립트 다운로드 규칙 (02단계 필수)
+
+- 소스 영상 선정 후 **반드시 `transcript.json`을 `02_topic/` 에 저장**
+- 다운로드 도구: `youtube-transcript-api` Python 패키지 사용
+  ```bash
+  python3 -c "
+  from youtube_transcript_api import YouTubeTranscriptApi
+  import json
+  video_id = 'VIDEO_ID'
+  transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['en','ko'])
+  print(json.dumps(transcript, ensure_ascii=False, indent=2))
+  " > 02_topic/transcript.json
+  ```
+- 영어 자막 우선(`languages=['en','ko']`), 없으면 자동 생성 자막 시도
+- `transcript.json` 형식: `[{"text": "...", "start": 0.0, "duration": 2.5}, ...]`
+- **03_script, 04_visual 작성 시 transcript.json의 실제 발언 내용과 타임코드를 기준으로 소스 클립 구간 결정**
 
 ### 소스 영상 선정 기준 (01~02단계 핵심)
 
