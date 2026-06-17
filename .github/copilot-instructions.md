@@ -59,11 +59,12 @@ Stage 7: Publishing Agent        → episodes/{slug}/07_publish/
   from youtube_transcript_api import YouTubeTranscriptApi
   import json
   video_id = 'VIDEO_ID'
-  transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['en','ko'])
+  transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['en','hi','es','fr','ja','zh','ko'])
   print(json.dumps(transcript, ensure_ascii=False, indent=2))
   " > 02_topic/transcript.json
   ```
-- 영어 자막 우선(`languages=['en','ko']`), 없으면 자동 생성 자막 시도
+- 원본 언어 자막 우선 (`languages` 배열에 원본 언어 코드를 앞에 지정), 없으면 자동 생성 자막 시도
+- 원본이 한국어(`ko`)만 존재하는 경우 소스로 사용 불가
 - `transcript.json` 형식: `[{"text": "...", "start": 0.0, "duration": 2.5}, ...]`
 - **03_script, 04_visual 작성 시 transcript.json의 실제 발언 내용과 타임코드를 기준으로 소스 클립 구간 결정**
 
@@ -71,7 +72,10 @@ Stage 7: Publishing Agent        → episodes/{slug}/07_publish/
 
 - **저작권**: Creative Commons(CC) 라이선스 또는 명시적 재사용 허가 영상 우선
 - **조회수**: 1만 뷰 이상 (검증된 주제 관심도)
-- **영상 품질**: 720p 이상, 영어 또는 한국어 자막 포함
+- **영상 품질**: 720p 이상
+- **원본 언어**: **한국어가 아닌 영상** (영어·힌디·스페인어 등 언어 무관, 단 한국어 원본 영상 제외)
+  - transcript 언어 코드가 `ko`만 존재하는 영상은 선정 불가
+  - `api.list(video_id)` 로 반드시 언어 확인 후 선정
 - **내용 적합성**: 외국인 화자, 한국 생활 주제, 타겟 시청자(30대 이상 한국인) 공감 가능
 - `trends.json` 의 `source_candidates` 배열에 URL·채널명·조회수·라이선스·사용 가능 구간을 반드시 기록
 

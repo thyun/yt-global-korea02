@@ -1,0 +1,91 @@
+{
+  "episode": "20260617_episode-004",
+  "created_at": "2026-06-17",
+  "search_method": "지정 채널 분석 (사용자 제공)",
+  "channel": {
+    "name": "Juhi (Jignasa Joshi)",
+    "url": "https://www.youtube.com/@Juhiinkoreanr",
+    "description": "인도 라자스탄 출신, 2023년 한국 장학생으로 입국해 성남 국립대학교 통합 석·박사 과정 중. 한국 유학 생활 일상을 힌디어로 기록.",
+    "language": "힌디어 (Hindi)",
+    "subscribers": "약 75,000+",
+    "content_theme": "인도 여성의 한국 유학 생활 — 장학금, 생활비, 일상, 문화 적응"
+  },
+  "search_keywords": [
+    "Juhi in Korea cost of living scholarship Indian student",
+    "인도 유학생 한국 생활비 장학금 현실"
+  ],
+  "trending_topics": [
+    {
+      "rank": 1,
+      "topic": "인도 유학생이 장학금만으로 한국에서 자립하는 법",
+      "description": "인도에서 온 유학생이 집에서 한 푼도 안 받고 한국 장학금 stipend만으로 월세·식비·의료비 모두 해결. 실제 금액을 공개하는 리얼 생활비 고백.",
+      "why_trending": "2024~2026년 인도·동남아시아 유학생의 한국 선택 급증 트렌드. '한국이 얼마나 생활하기 좋은 나라인가'를 외부인 시각으로 검증하는 콘텐츠로 한국인 시청자 공감·자부심 자극.",
+      "target_appeal": "30대 이상 한국인이 당연하게 여기는 월세 수준·의료비·생활 인프라가 외국인에게 얼마나 놀라운지 재발견"
+    },
+    {
+      "rank": 2,
+      "topic": "한국 아파트 온돌 — 인도인이 처음 경험한 바닥 난방",
+      "description": "겨울에 바닥이 따뜻해지는 한국식 온돌 시스템을 인도인이 처음 경험하는 반응. 난방비가 월세에 포함된다는 사실에 충격.",
+      "why_trending": "인도는 난방 개념 자체가 없는 지역 많음. 온돌 문화를 외부인이 설명하면 한국인에게도 신선한 재발견"
+    },
+    {
+      "rank": 3,
+      "topic": "한국 의료비가 이렇게 싸다고? — 피부과 진료비 실제 후기",
+      "description": "인도 학생이 한국 피부과를 방문해 진료비+약값 합쳐 6,000원(약 4달러)에 해결. 처방전 없이 약국에서도 가능.",
+      "why_trending": "인도 의료 시스템 대비 한국 의료 접근성·비용이 극적으로 차이 나 화제성 높음"
+    },
+    {
+      "rank": 4,
+      "topic": "한국 편의점 커피 4,000원 — 인도 유학생의 커피 중독기",
+      "description": "인도에서는 커피를 거의 안 마시던 학생이 한국 카페 문화에 빠지며 지출 1순위가 커피가 된 현상.",
+      "why_trending": "한국 카페 문화의 글로벌 매력을 인도인 시각으로 재조명"
+    }
+  ],
+  "source_candidates": [
+    {
+      "rank": 1,
+      "title": "Cost of Living in Korea as an International Student",
+      "url": "https://www.youtube.com/watch?v=b4DlTy_zVT0",
+      "video_id": "b4DlTy_zVT0",
+      "channel": "Juhi (@Juhiinkoreanr)",
+      "language": "힌디어 (Hindi auto-generated transcript)",
+      "duration": "8분 55초",
+      "transcript_segments": 185,
+      "topics_covered": [
+        "자기소개: 인도 라자스탄 출신, 2023년 장학금 입국",
+        "주거: 스튜디오 원룸, 월세 20만원 수준",
+        "난방: 온돌 바닥 난방 월세 포함 — 난방비 0원",
+        "전기세: 약 15,000원 (여름 20,000원)",
+        "식비·커피: 월 20만원, 커피 4,000원/잔에 중독",
+        "의료비: 피부과 진료+약값 합계 6,000원",
+        "등록금: 장학금으로 분할 납부",
+        "총 생활비: 장학금 stipend만으로 자급자족"
+      ],
+      "why_selected": "8분55초로 목표 길이 최적. 월세→식비→의료비 구조로 명확한 스토리 흐름. 집에서 돈 한 푼 안 받고 장학금만으로 자립한다는 서사가 한국인 시청자에게 강한 재발견 감정 유발.",
+      "korean_language_check": "힌디어만 존재 (ko 자막 없음) → 비한국어 조건 충족",
+      "recommended": true
+    },
+    {
+      "rank": 2,
+      "title": "Why I Chose Korea Over Other Countries?",
+      "url": "https://www.youtube.com/watch?v=IoYIZQJkYnU",
+      "video_id": "IoYIZQJkYnU",
+      "language": "힌디어",
+      "duration": "18분 50초",
+      "why_not_selected": "내용이 산발적이고 18분으로 편집 분량 과다. 생활비 영상 대비 집중도 낮음.",
+      "recommended": false
+    },
+    {
+      "rank": 3,
+      "title": "I Won a SCHOLARSHIP?!",
+      "url": "https://www.youtube.com/watch?v=SqlZOxl6kCY",
+      "video_id": "SqlZOxl6kCY",
+      "language": "힌디어",
+      "duration": "34분 12초",
+      "why_not_selected": "34분으로 편집 소스로 너무 길고, 장학금 신청 과정 위주로 한국인 시청자 공감 포인트 낮음.",
+      "recommended": false
+    }
+  ],
+  "recommended_source": "b4DlTy_zVT0",
+  "episode_theme": "인도에서 온 유학생, 집에서 돈 한 푼 안 받고 한국에서 사는 법"
+}
