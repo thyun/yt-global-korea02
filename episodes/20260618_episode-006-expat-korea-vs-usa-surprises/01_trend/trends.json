@@ -1,0 +1,78 @@
+{
+  "episode": "006",
+  "episode_dir": "20260618_episode-006-expat-korea-vs-usa-surprises",
+  "created_at": "2026-06-18",
+  "search_keywords": [
+    "expat life in Korea unexpected moments"
+  ],
+  "trend_themes": [
+    {
+      "theme": "한국 vs 미국 생활 비교 — 오래 살아도 여전히 놀라운 것들",
+      "description": "10년 이상 한국에 거주한 외국인이 아직도 적응 안 되는 한국 생활의 의외의 면들. 주차 공간, 지하철 에티켓, 음식 문화 차이 등이 한국 시청자 관점에서도 흥미로운 주제."
+    },
+    {
+      "theme": "외국인의 솔직한 한국 생활 현실 (외로움·문화 장벽)",
+      "description": "인스타그램 속 화려한 이미지와 다른 현실 — 외로움, 언어 장벽, 직업 제한 등 솔직한 고충."
+    },
+    {
+      "theme": "외국인이 한국에서 경험한 문화 충격 베스트",
+      "description": "지하철 밀치기, 길거리 안전, 공공 예의 등 외국인 시선으로 본 한국 문화의 독특한 면."
+    }
+  ],
+  "source_candidates": [
+    {
+      "rank": 1,
+      "video_id": "0beNabpO1O8",
+      "url": "https://www.youtube.com/watch?v=0beNabpO1O8",
+      "title": "Living in Korea vs USA (PART 2): Even MORE Things I Miss From America!",
+      "channel": "Megan Moon",
+      "view_count": 48511,
+      "upload_date": "2025-05-21",
+      "duration": "15:50",
+      "resolution": "2160p",
+      "language": "en",
+      "license": "Standard YouTube",
+      "transcript_available": true,
+      "key_topics": [
+        "한국 주차공간이 너무 좁아 트렁크로 기어나와야 했던 경험 (임신 중에도)",
+        "지하철에서 밀치는 한국인 — 3년간 미안하다고 했다가 지금은 되받아치기 시작",
+        "미국 과자(식초·구연산 맛)를 한국인들이 싫어하는 이유",
+        "한국인 친구들의 부정적 반응 문화 ('그건 어렵다' 식의 현실적 조언)",
+        "시골 부산으로 이사 간 이유 — 서울 사회 압박 탈피",
+        "한국의 단순한 삶을 꿈꾸는 외국인들이 부딪히는 현실"
+      ],
+      "selected": true,
+      "selection_reason": "조회수 4만8천·4K 화질·영어 자막 확인·2025년 영상. 13년 한국 거주 미국인의 솔직하고 구체적인 관찰이 한국 시청자에게 신선하고 공감 가능. 야외 장면 포함."
+    },
+    {
+      "rank": 2,
+      "video_id": "tVd-I303sh8",
+      "url": "https://www.youtube.com/watch?v=tVd-I303sh8",
+      "title": "The Truth About Living in Korea As a Foreigner",
+      "channel": "Lorena Tatia",
+      "view_count": 8550,
+      "upload_date": "2025-05-28",
+      "duration": "10:34",
+      "resolution": "1080p",
+      "language": "en",
+      "transcript_available": true,
+      "selected": false,
+      "selection_reason": "조회수 1만 미만으로 기준 미달. 주제(외로움)도 단일 테마라 구성 다양성 부족."
+    },
+    {
+      "rank": 3,
+      "video_id": "DrBD-2jLqRQ",
+      "url": "https://www.youtube.com/watch?v=DrBD-2jLqRQ",
+      "title": "My Life in Korea Looks Glamorous—But Reality",
+      "channel": "BM shinchu",
+      "view_count": 60982,
+      "upload_date": "2025-08-03",
+      "duration": "17:21",
+      "resolution": "1440p",
+      "language": "hi",
+      "transcript_available": true,
+      "selected": false,
+      "selection_reason": "실내 루틴 중심으로 야외 장면 변화 부족. 힌디어 영상이라 자막 작업 복잡도 높음."
+    }
+  ]
+}
