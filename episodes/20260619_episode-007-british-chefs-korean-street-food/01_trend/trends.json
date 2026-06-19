@@ -1,0 +1,79 @@
+{
+  "episode": "007",
+  "episode_dir": "20260619_episode-007-british-chefs-korean-street-food",
+  "created_at": "2026-06-19",
+  "search_keywords": [
+    "foreigner tries Korean food for the first time reaction"
+  ],
+  "trend_themes": [
+    {
+      "theme": "미슐랭 셰프가 한국 길거리 음식 처음 먹는다면?",
+      "description": "런던 파인다이닝 레스토랑(Fallow) 셰프들이 어묵·떡볶이·김밥·순대·호떡을 처음 맛보며 전문가 시선으로 반응하는 영상. 429만 뷰. 한국 길거리 음식의 글로벌 위상을 확인시켜 주는 콘텐츠."
+    },
+    {
+      "theme": "외국인의 한국 과자/스낵 첫 도전",
+      "description": "미국인들이 빼빼로·바나나맛우유·허니버터칩·불닭 등 한국 스낵을 처음 먹고 평점 매기는 포맷. 110만 뷰."
+    },
+    {
+      "theme": "외국 10대들의 한국 식당 첫 방문 리액션",
+      "description": "미국 10대들이 한국 음식을 직접 주문해 먹으며 솔직한 평점을 매기는 포맷. 2.5만 뷰."
+    }
+  ],
+  "source_candidates": [
+    {
+      "rank": 1,
+      "video_id": "DNnkmK0ZUIk",
+      "url": "https://www.youtube.com/watch?v=DNnkmK0ZUIk",
+      "title": "British Chefs try Korean Street Food for the first time! (ft. Fallow)",
+      "channel": "영국남자 Korean Englishman",
+      "view_count": 4294000,
+      "upload_date": "2025-08-20",
+      "duration": "17:36",
+      "resolution": "2160p",
+      "language": "en",
+      "license": "Standard YouTube",
+      "transcript_available": true,
+      "key_topics": [
+        "계란 꼬치: '이런 맛은 태어나서 처음이야, 한 통 주면 다 먹겠어'",
+        "어묵/오뎅: '숙취 해소에 딱 맞는 음식, 매일 먹을 수 있겠다'",
+        "치즈 어묵: '치즈가 나올 줄 몰랐어, 와!'",
+        "떡볶이+어묵 조합: '이렇게 먹어야 제대로인 거야'",
+        "김밥: '한국판 샌드위치, 엄청 먹을 수 있겠다'",
+        "순대: '뇌처럼 생겼는데... 이건 나는 패스' — 호불호 극명",
+        "호떡: '설탕에 손 타는데 상관없어, 너무 맛있어'"
+      ],
+      "selected": true,
+      "selection_reason": "429만 뷰·4K·영어 자막·2025년 영상. 미슐랭 레스토랑 Fallow 셰프들의 전문가 시선 반응이 일반 리액션 영상과 차별화. 야외 길거리 음식 장면 풍부. 음식별 반응 편차(극찬→거부)가 드라마틱해 편집 구성에 최적."
+    },
+    {
+      "rank": 2,
+      "video_id": "hcVe1I1s4NY",
+      "url": "https://www.youtube.com/watch?v=hcVe1I1s4NY",
+      "title": "Americans Try Korean Snacks For The First Time! | People vs Food",
+      "channel": "People Vs Food",
+      "view_count": 1102135,
+      "upload_date": "2024-04-12",
+      "duration": "17:59",
+      "resolution": "1080p",
+      "language": "en",
+      "transcript_available": true,
+      "selected": false,
+      "selection_reason": "110만 뷰로 충분하나, 실내 스튜디오 촬영 포맷이라 장면 변화 부족. 1순위 대비 조회수·야외성·드라마 모두 열세."
+    },
+    {
+      "rank": 3,
+      "video_id": "M2JXAUduU6o",
+      "url": "https://www.youtube.com/watch?v=M2JXAUduU6o",
+      "title": "US Teens Try Korean Food for the First Time",
+      "channel": "Dalton's Detours",
+      "view_count": 25595,
+      "upload_date": "2026-04-19",
+      "duration": "29:14",
+      "resolution": "2160p",
+      "language": "en",
+      "transcript_available": true,
+      "selected": false,
+      "selection_reason": "조회수 2.5만으로 기준(1만) 통과하나 1순위 대비 현저히 낮음."
+    }
+  ]
+}
